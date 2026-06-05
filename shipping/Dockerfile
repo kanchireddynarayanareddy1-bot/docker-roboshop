@@ -1,5 +1,5 @@
 FROM maven:3.9.11
-WORKDIR opt/server
+WORKDIR /opt/server
 EXPOSE 8080
 COPY pom.xml .
 COPY src ./src
