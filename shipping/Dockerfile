@@ -1,6 +1,6 @@
 FROM maven:3.9.11
-EXPOSE 8080
 WORKDIR opt/server
+EXPOSE 8080
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package
