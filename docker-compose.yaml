@@ -1,7 +1,6 @@
 services:
   catalogue:
     build: ./catalogue
-    context: Dockerfile
     image: narayanareddy2026/catalogue:v1
     container_name: catalogue
   mongodb:
