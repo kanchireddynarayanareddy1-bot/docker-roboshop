@@ -7,6 +7,7 @@ COPY *.js .
 RUN npm install 
 
 FROM node:22.22-alpine3.24
+# make to normol user not root user
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
 COPY --from=build /opt/server /opt/server
