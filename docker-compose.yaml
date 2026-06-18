@@ -6,23 +6,23 @@ services:
     image: mongodb:v1
     container_name: mongodb
     volumes:
-      -mongodb:/data/db
+      - mongodb:/data/db
   redis:
     image: redis:7.0
     container_name: redis
     volumes:
-      -redis:/data
+      - redis:/data
   mysql:
     image: mysql:v1
     container_name: mysql
     volumes:
-      -mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
   rabbitmq:
     image: rabbitmq:3
     container_name: rabbitmq
     volumes:
-      -rabbitmq:/var/lib/rabbitmq
-    envirinment:
+      - rabbitmq:/var/lib/rabbitmq
+    environment:
       RABBITMQ_DEFAULT_USER: roboshopp
       RABBITMQ_DEFAULT_PASS: roboshop123
   user: 
@@ -38,7 +38,7 @@ services:
       - redis
       - catalogue       
   shipping:
-    iamge: shipping:v1
+    image: shipping:v1
     container_name: shipping
     depends_on:
       - mysql
@@ -70,7 +70,7 @@ networks:
     name: roboshop
     external: false # true if you created network manually network command     
 volumes:
-  - mongodb
-  - redis
-  - mysql
-  - rabbitmq
+   mongodb:
+   redis:
+   mysql:
+   rabbitmq:
