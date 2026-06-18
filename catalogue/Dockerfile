@@ -1,8 +1,14 @@
-FROM node:22.22-alpine3.24
+FROM node:22.22-alpine3.24 as build
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
+
+# this may add extra cache memory we can use multi satge build 
 RUN npm install 
+
+FROM node:22.22-alpine3.24
+WORKDIR /opt/server
+COPY --from==build /opt/server /opt/server
 ENV MONGO=true\
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 CMD ["node","server.js"]    
